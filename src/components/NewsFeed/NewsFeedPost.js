@@ -12,6 +12,16 @@ const PostAuthorName = styled.div`
   text-transform: capitalize;
   font-weight: 600;
 `;
+const PostLikesCount = styled.div`
+  position: relative;
+  text-transform: capitalize;
+  font-weight: 600;
+`;
+const PostCommentsCount = styled.div`
+  position: relative;
+  text-transform: capitalize;
+  font-weight: 600;
+`;
 const PostAuthorPublishedDate = styled.div`
   position: relative;
   font-size: var(--subtitle-12-size);
@@ -158,15 +168,19 @@ const NewsFeedPostRoot = styled.div`
 
 const NewsFeedPost = ({
   author = "Jack Nickelson",
+  avatar = "/postauthoravatar@2x.png",
   date = "2 hours ago",
   content = "Bitcoin and Ethereum continue to dominate, while Binance Coin, Solana, and Cardano offer unique features and opportunities...",
+  likesCount = 143,
+  kudosCount = 23.5,
+  commentsCount = 13,
 }) => {
   return (
     <NewsFeedPostRoot>
       <PostContent>
         <PostTopBar>
           <PostAuthorBlock>
-            <PostAuthorAvatarIcon alt="" src="/postauthoravatar@2x.png" />
+            <PostAuthorAvatarIcon alt="" src={avatar} />
             <PostAuthorNameDataContaine>
               <PostAuthorName>{author}</PostAuthorName>
               <PostAuthorPublishedDate>{date}</PostAuthorPublishedDate>
@@ -184,12 +198,12 @@ const NewsFeedPost = ({
               <PostSupportText>Support</PostSupportText>
             </PostSupportButton>
             <PostLikesBlock>
-              <PostAuthorName>145</PostAuthorName>
-              <PostKudosCount>24.5 Kudos</PostKudosCount>
+              <PostLikesCount>{likesCount}</PostLikesCount>
+              <PostKudosCount>{kudosCount} Kudos</PostKudosCount>
             </PostLikesBlock>
           </PostAuthorBlock>
           <PostCommentsBlock>
-            <PostAuthorName>12</PostAuthorName>
+            <PostCommentsCount>{commentsCount}</PostCommentsCount>
             <PostCommentsIcon>
               <Iconscomment alt="" src="/iconscomment1.svg" />
             </PostCommentsIcon>

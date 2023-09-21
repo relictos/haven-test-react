@@ -1,9 +1,9 @@
-import MainMenu from "../components/MainMenu";
-import NewsFeedNewPost from "../components/NewsFeedNewPost";
-import NewsFeedPost from "../components/NewsFeedPost";
+import MainMenu from "../components/Global/MainMenu";
+import NewsFeedNewPost from "../components/NewsFeed/NewsFeedNewPost";
+import NewsFeedPost from "../components/NewsFeed/NewsFeedPost";
 import styled from "styled-components";
-import PopularHavensRec from "../components/PopularHavensRec";
-import ButtonPrimary from "../components/ButtonPrimary";
+import PopularHavensRec from "../components/NewsFeed/PopularHavensRec";
+import NewsFeedBanner from "../components/NewsFeed/NewsFeedBanner";
 
 const NewsFeedPosts = styled.div`
   align-self: stretch;
@@ -74,28 +74,7 @@ const HavenSmallRecsBlock = styled.div`
   justify-content: flex-start;
   gap: var(--gap-xl);
 `;
-const CreateHavenBannerIcon1 = styled.img`
-  position: relative;
-  width: 64px;
-  height: 64px;
-  object-fit: cover;
-`;
-const CreateHavenBannerText = styled.div`
-  align-self: stretch;
-  position: relative;
-  font-weight: 500;
-`;
-const CreateHavenBanner = styled.div`
-  align-self: stretch;
-  border-radius: var(--br-7xs);
-  background-color: var(--border-border-defaul);
-  display: flex;
-  flex-direction: column;
-  padding: var(--padding-xl);
-  align-items: flex-start;
-  justify-content: flex-start;
-  color: var(--text-text-lvl-1);
-`;
+
 const PageRightColumnContent = styled.div`
   flex: 1;
   display: flex;
@@ -138,7 +117,11 @@ const PageColumns = styled.div`
 `;
 const PageContent = styled.div`
   align-self: stretch;
+  min-height: 100vh;
   background-color: var(--bg-body-bg);
+`;
+const PageContentContainer = styled.div`
+  align-self: stretch;
   display: flex;
   flex-direction: column;
   padding: var(--padding-xl) 40px;
@@ -186,80 +169,71 @@ const NewsFeedLocofyTestReact = () => {
   return (
     <NewsFeedLocofyTestReactRoot>
       <PageContent>
-        <MainMenu />
-        <PageColumns>
-          <PageLeftColumn>
-            <NewsFeedNewPost content="Create a new publication" />
-            <NewsFeedPosts>
-              <NewsFeedPost
-                author="Jack Nickelson"
-                date="2 hours ago"
-                content="Bitcoin and Ethereum continue to dominate, while Binance Coin, Solana, and Cardano offer unique features and opportunities..."
-              />
-              <NewsFeedPost
-                author="Jack Nickelson"
-                date="2 hours ago"
-                content="Bitcoin and Ethereum continue to dominate, while Binance Coin, Solana, and Cardano offer unique features and opportunities..."
-              />
-              <NewsFeedPost
-                author="Jack Nickelson"
-                date="2 hours ago"
-                content="Bitcoin and Ethereum continue to dominate, while Binance Coin, Solana, and Cardano offer unique features and opportunities..."
-              />
-            </NewsFeedPosts>
-          </PageLeftColumn>
-          <PageRightColumn>
-            <PageRightColumnContent>
-              <HavenSmallRecsBlock>
-                <RightBlockSpoiler>
-                  <RightBlockTitle>Popular Havens</RightBlockTitle>
-                  <ExpandArrow>
-                    <Iconsexpand alt="" src="/iconsexpand.svg" />
-                  </ExpandArrow>
-                </RightBlockSpoiler>
-                <HavenSmallRecs>
-                  <PopularHavensRec
-                    title="Onomy Protocol"
-                    subtitle="291 followers"
-                    showHavensSmallRecUnderline
-                  />
-                  <PopularHavensRec
-                    title="Onomy Protocol"
-                    subtitle="291 followers"
-                    showHavensSmallRecUnderline
-                  />
-                  <PopularHavensRec
-                    title="Onomy Protocol"
-                    subtitle="291 followers"
-                    showHavensSmallRecUnderline
-                  />
-                  <PopularHavensRec
-                    title="Onomy Protocol"
-                    subtitle="291 followers"
-                    showHavensSmallRecUnderline
-                  />
-                  <PopularHavensRec
-                    title="Onomy Protocol"
-                    subtitle="291 followers"
-                    showHavensSmallRecUnderline={false}
-                  />
-                </HavenSmallRecs>
-              </HavenSmallRecsBlock>
-              <CreateHavenBanner>
+        <PageContentContainer>
+          <MainMenu />
+          <PageColumns>
+            <PageLeftColumn>
+              <NewsFeedNewPost content="Create a new publication" />
+              <NewsFeedPosts>
+                <NewsFeedPost
+                  author="Jack Nickelson"
+                  date="2 hours ago"
+                  content="Bitcoin and Ethereum continue to dominate, while Binance Coin, Solana, and Cardano offer unique features and opportunities..."
+                  avatar = "/postauthoravatar@2x.png"
+                  likesCount = {144}
+                  kudosCount = {25.5}
+                  commentsCount = {12}
+                />
+                <NewsFeedPost
+                  author="Jack Nickelson"
+                  date="2 hours ago"
+                  content="Bitcoin and Ethereum continue to dominate, while Binance Coin, Solana, and Cardano offer unique features and opportunities..."
+                />
+                <NewsFeedPost
+                  author="Jack Nickelson"
+                  date="2 hours ago"
+                  content="Bitcoin and Ethereum continue to dominate, while Binance Coin, Solana, and Cardano offer unique features and opportunities..."
+                />
+              </NewsFeedPosts>
+            </PageLeftColumn>
+            <PageRightColumn>
+              <PageRightColumnContent>
                 <HavenSmallRecsBlock>
-                  <CreateHavenBannerIcon1
-                    alt=""
-                    src="/createhavenbannericon-1@2x.png"
-                  />
-                  <CreateHavenBannerText>
-                    Wanna share content and earn money?
-                  </CreateHavenBannerText>
-                  <ButtonPrimary text="Create Haven" />
+                  <RightBlockSpoiler>
+                    <RightBlockTitle>Popular Havens</RightBlockTitle>
+                    <ExpandArrow>
+                      <Iconsexpand alt="" src="/iconsexpand.svg" />
+                    </ExpandArrow>
+                  </RightBlockSpoiler>
+                  <HavenSmallRecs>
+                    <PopularHavensRec
+                      title="Onomy Protocol"
+                      subtitle="291 followers"
+                    />
+                    <PopularHavensRec
+                      title="Onomy Protocol"
+                      subtitle="291 followers"
+                    />
+                    <PopularHavensRec
+                      title="Onomy Protocol"
+                      subtitle="291 followers"
+                    />
+                    <PopularHavensRec
+                      title="Onomy Protocol"
+                      subtitle="291 followers"
+                    />
+                    <PopularHavensRec
+                      title="Onomy Protocol"
+                      subtitle="291 followers"
+                      showHavensSmallRecUnderline={false}
+                    />
+                  </HavenSmallRecs>
                 </HavenSmallRecsBlock>
-              </CreateHavenBanner>
-            </PageRightColumnContent>
-          </PageRightColumn>
-        </PageColumns>
+                <NewsFeedBanner></NewsFeedBanner>
+              </PageRightColumnContent>
+            </PageRightColumn>
+          </PageColumns>
+        </PageContentContainer>
       </PageContent>
     </NewsFeedLocofyTestReactRoot>
   );

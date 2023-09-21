@@ -54,7 +54,7 @@ const HavensSmallListRecRoot = styled.div`
 const PopularHavensRec = ({
   title = "Onomy Protocol",
   subtitle = "291 followers",
-  showHavensSmallRecUnderline,
+  showHavensSmallRecUnderline = true,
 }) => {
   return (
     <HavensSmallListRecRoot>

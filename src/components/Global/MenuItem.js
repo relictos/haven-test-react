@@ -8,11 +8,10 @@ const MenuItemRoot = styled.div`
   font-family: var(--subtitle-12);
   color: var(--text-text-lvl-3);
   text-align: left;
-  display: ${(p) => p.menuItemDisplay};
 `;
 
-const MenuItem = ({ title = "News Feed", menuItemDisplay }) => {
-  return <MenuItemRoot menuItemDisplay={menuItemDisplay}>{title}</MenuItemRoot>;
+const MenuItem = ({ title = "News Feed" }) => {
+  return <MenuItemRoot>{title}</MenuItemRoot>;
 };
 
 export default MenuItem;
